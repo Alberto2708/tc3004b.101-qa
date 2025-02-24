@@ -34,7 +34,7 @@ vars = {}
     await driver.quit();
   })
   it('Basic addition test', async function() {
-    await driver.get("http://127.0.0.1:5500/index.html")
+    await driver.get("http://127.0.0.1:8000/index.html")
     await driver.manage().window().setRect({ width: 814, height: 912 })
     await driver.findElement(By.id("num1")).click()
     await driver.findElement(By.id("num1")).sendKeys("2")

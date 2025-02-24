@@ -34,7 +34,7 @@ vars = {}
     await driver.quit();
   })
   it('double negative number', async function() {
-    await driver.get("http://127.0.0.1:5500/")
+    await driver.get("http://127.0.0.1:8000/")
     await driver.manage().window().setRect({ width: 814, height: 912 })
     await driver.findElement(By.id("num1")).click()
     await driver.findElement(By.id("num1")).sendKeys("-2")
