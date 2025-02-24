@@ -46,7 +46,7 @@ afterEach(async function () {
 
       const encodedString = await driver.takeScreenshot();
 
-      await fs.writeFileSync(`./screenshots/${filename}.png`,
+      await fs.writeFileSync(`../screenshots/${filename}.png`,
 
           encodedString, 'base64');
 
@@ -80,7 +80,7 @@ const filename = 'largenumberaddition';
 
       const encodedString = await driver.takeScreenshot();
 
-      await fs.writeFileSync(`./screenshots/${filename}.png`,
+      await fs.writeFileSync(`../screenshots/${filename}.png`,
 
           encodedString, 'base64');
 
