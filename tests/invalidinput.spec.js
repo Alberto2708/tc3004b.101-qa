@@ -6,10 +6,29 @@ describe('Invalid input', function() {
   this.timeout(30000)
   let driver
   let vars
-  beforeEach(async function() {
-    driver = await new Builder().forBrowser('chrome').build()
-    vars = {}
-  })
+  if (!fs.existsSync('./screenshots')) {
+
+    fs.mkdirSync('./screenshots');
+
+}
+
+beforeEach(async function() {
+
+const chrome = require('selenium-webdriver/chrome');
+
+    const options = new chrome.Options();
+
+    options.addArguments('--headless', '--no-sandbox', '--disable-dev-shm-usage');
+
+    driver = await new Builder().forBrowser('chrome').setChromeOptions(options).build();
+
+
+
+
+
+vars = {}
+
+})
   afterEach(async function() {
     await driver.quit();
   })
@@ -22,5 +41,12 @@ describe('Invalid input', function() {
     await driver.findElement(By.id("num2")).sendKeys("5")
     await driver.findElement(By.css("button:nth-child(1)")).click()
     await driver.findElement(By.css("button:nth-child(2)")).click()
+    const filename = 'invalidinput';
+
+    const encodedString = await driver.takeScreenshot();
+
+    await fs.writeFileSync(`./screenshots/${filename}.png`,
+
+        encodedString, 'base64');
   })
 })
