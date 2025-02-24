@@ -30,24 +30,60 @@ const chrome = require('selenium-webdriver/chrome');
 vars = {}
 
 })
-  afterEach(async function() {
-    await driver.quit();
-  })
-  it('Basic addition test', async function() {
-    await driver.get("http://127.0.0.1:8000/index.html")
-    await driver.manage().window().setRect({ width: 814, height: 912 })
-    await driver.findElement(By.id("num1")).click()
-    await driver.findElement(By.id("num1")).sendKeys("2")
-    await driver.findElement(By.id("num2")).click()
-    await driver.findElement(By.id("num2")).sendKeys("3")
-    await driver.findElement(By.css("button:nth-child(1)")).click()
-    await driver.findElement(By.css("button:nth-child(2)")).click()
-    const filename = 'basicadditiontest';
+afterEach(async function () {
 
-    const encodedString = await driver.takeScreenshot();
+  if (driver) {
 
-    await fs.writeFileSync(`./screenshots/${filename}.png`,
+      // Take a screenshot of the result page
 
-        encodedString, 'base64');
-  })
+      const filename = this.currentTest.fullTitle()
+
+          .replace(/['"]+/g, '')
+
+          .replace(/[^a-z0-9]/gi, '_')
+
+          .toLowerCase();;
+
+      const encodedString = await driver.takeScreenshot();
+
+      await fs.writeFileSync(`./screenshots/${filename}.png`,
+
+          encodedString, 'base64');
+
+
+
+      // Close the browser
+
+      await driver.quit();
+
+  }
+
+});
+
+it('test1', async function() {
+
+await driver.get("http://localhost:8000/")
+
+await driver.manage().window().setRect({ width: 1050, height: 652 })
+
+await driver.findElement(By.id("num1")).click()
+
+await driver.findElement(By.id("num1")).sendKeys("1")
+
+await driver.findElement(By.id("num2")).click()
+
+await driver.findElement(By.id("num2")).sendKeys("1")
+
+await driver.findElement(By.css("button:nth-child(1)")).click()
+
+const filename = 'basicadditiontest';
+
+      const encodedString = await driver.takeScreenshot();
+
+      await fs.writeFileSync(`./screenshots/${filename}.png`,
+
+          encodedString, 'base64');
+
+})
+
 })
