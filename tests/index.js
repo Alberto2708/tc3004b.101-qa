@@ -34,7 +34,7 @@ vars = {}
     await driver.quit();
   })
   it('large number addition', async function() {
-    await driver.get("http://127.0.0.1:5500/")
+    await driver.get("http://127.0.0.1:8000/")
     await driver.manage().window().setRect({ width: 817, height: 912 })
     await driver.findElement(By.id("num1")).click()
     await driver.findElement(By.id("num1")).sendKeys("1000000")
@@ -43,7 +43,7 @@ vars = {}
     await driver.findElement(By.css("button:nth-child(1)")).click()
     await driver.findElement(By.css("button:nth-child(2)")).click()
     await driver.close()
-    const filename = 'test1';
+    const filename = 'largenumberaddition';
 
             const encodedString = await driver.takeScreenshot();
 
