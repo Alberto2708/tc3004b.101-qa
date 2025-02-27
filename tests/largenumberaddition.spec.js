@@ -3,7 +3,7 @@ const { Builder, By, Key, until } = require('selenium-webdriver')
 const assert = require('assert')
 const fs = require('fs')
 
-describe('decimal addition', function() {
+describe('large number addition', function() {
   this.timeout(30000)
   let driver
   let vars
@@ -78,7 +78,7 @@ await driver.findElement(By.css("button:nth-child(1)")).click()
 
 await driver.findElement(By.css("button:nth-child(3)")).click()
 
-const filename = 'decimaladdition';
+const filename = 'largenumberaddition';
 
       const encodedString = await driver.takeScreenshot();
 

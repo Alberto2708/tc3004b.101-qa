@@ -2,7 +2,7 @@
 const { Builder, By, Key, until } = require('selenium-webdriver')
 const assert = require('assert')
 
-describe('large number addition', function() {
+describe('sub_2_integers', function() {
   this.timeout(30000)
   let driver
   let vars
@@ -13,15 +13,16 @@ describe('large number addition', function() {
   afterEach(async function() {
     await driver.quit();
   })
-  it('large number addition', async function() {
-    await driver.get("http://127.0.0.1:5500/")
-    await driver.manage().window().setRect({ width: 817, height: 912 })
+  it('sub_2_integers', async function() {
+    await driver.get("http://127.0.0.1:5500/src/index.html")
+    await driver.manage().window().setRect({ width: 784, height: 912 })
     await driver.findElement(By.id("num1")).click()
-    await driver.findElement(By.id("num1")).sendKeys("1000000")
+    await driver.findElement(By.id("num1")).sendKeys("5")
+    await driver.findElement(By.css(".input-group:nth-child(3)")).click()
     await driver.findElement(By.id("num2")).click()
-    await driver.findElement(By.id("num2")).sendKeys("25000000")
-    await driver.findElement(By.css("button:nth-child(1)")).click()
+    await driver.findElement(By.id("num2")).sendKeys("9")
     await driver.findElement(By.css("button:nth-child(2)")).click()
+    await driver.findElement(By.css("button:nth-child(3)")).click()
     await driver.close()
   })
 })
