@@ -71,7 +71,7 @@ afterEach(async function () {
     await driver.findElement(By.id("num2")).sendKeys("8")
     await driver.findElement(By.css("button:nth-child(2)")).click()
     await driver.findElement(By.css("button:nth-child(3)")).click()
-    const filename = 'test1';
+    const filename = 'subnegpos';
 
             const encodedString = await driver.takeScreenshot();
 
