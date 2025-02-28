@@ -30,7 +30,7 @@ const chrome = require('selenium-webdriver/chrome');
 vars = {}
 
 })
-AfterEach(async function () {
+afterEach(async function () {
 
   if (driver) {
 
