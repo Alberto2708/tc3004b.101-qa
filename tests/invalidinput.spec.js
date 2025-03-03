@@ -82,7 +82,7 @@ const filename = 'invalidinput';
 
       const encodedString = await driver.takeScreenshot();
 
-      await fs.writeFileSync(`../screenshots/${filename}.png`,
+      await fs.writeFileSync(`./screenshots/${filename}.png`,
 
           encodedString, 'base64');
 
