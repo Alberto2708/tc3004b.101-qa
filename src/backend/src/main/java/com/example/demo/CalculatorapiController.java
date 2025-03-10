@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RestController
 public class CalculatorapiController {
 
-    private static final String template = "The result is: %s";
+    private static final String template = "%s";
 
     @GetMapping("/add")
     public Calculatorapi add(@RequestParam(value = "num1") long a, @RequestParam(value = "num2") long b) {
