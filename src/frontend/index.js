@@ -2,9 +2,12 @@ function addition(){
     const num1 = document.getElementById("num1").value;
     const num2 = document.getElementById("num2").value; //Probable error for ' instead of ""
 
-    let result;
-    result = Number(num1) + Number(num2);
-
+    fetch(`http://localhost:8080/add?num1=${num1}&num2=${num2}`)
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('result').innerText = 'Result: ' + data.result;
+    })
+    .catch(error => console.error('Error: ',error));
     document.getElementById("result").innerText = "Result:" + result;
 }
 
@@ -13,8 +16,13 @@ function substraction(){
     const num2 = document.getElementById("num2").value;
 
     let result;
-    result = Number(num1) - Number(num2);
 
+    fetch(`http://localhost:8080/subtract?num1=${num1}&num2=${num2}`)
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('result').innerText = 'Result: ' + data.result;
+    })
+    .catch(error => console.error('Error: ',error));
     document.getElementById("result").innerText = "Result:" + result;
 }
 
