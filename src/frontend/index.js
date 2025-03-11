@@ -32,3 +32,5 @@ function resetFields(){
     document.getElementById('num2').value = "";
     document.getElementById('result').innerText = "";
 }
+
+//herro?
