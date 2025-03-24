@@ -46,4 +46,4 @@ jobs:
           echo "server ready for testing"
           npm install -g newman
           newman -v
-          newman run src/backend/src/main/resources/calculator.postman_collection.json
+          newman run src/main/resources/calculator.postman_collection.json
