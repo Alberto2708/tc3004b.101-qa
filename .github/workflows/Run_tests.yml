@@ -47,7 +47,7 @@ jobs:
 
       - run: |
 
-            cd src
+            cd src/frontend
 
             python3 -m http.server 9090 &
 
