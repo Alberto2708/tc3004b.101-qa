@@ -11,12 +11,12 @@ public class CalculatorapiController {
     private static final String template = "%s";
 
     @GetMapping("/add")
-    public Calculatorapi add(@RequestParam(value = "num1") long a, @RequestParam(value = "num2") long b) {
+    public Calculatorapi add(@RequestParam(value = "num1") double a, @RequestParam(value = "num2") double b) {
         return new Calculatorapi(String.format(template, a + b));
     }
 
     @GetMapping("/subtract")
-    public Calculatorapi subtract(@RequestParam(value = "num1") long a, @RequestParam(value = "num2") long b) {
+    public Calculatorapi subtract(@RequestParam(value = "num1") double a, @RequestParam(value = "num2") double b) {
         return new Calculatorapi(String.format(template, a - b));
     }
 

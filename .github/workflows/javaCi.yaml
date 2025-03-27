@@ -48,4 +48,4 @@ jobs:
       run: npm install -g newman
     - name: Run Newman Tests
       run: |
-          newman run src/backend/src/main/resources/calculator.postman_collection.json
+          newman run src/backend/src/main/resources/SoftwareQuality.postman_collection.json
