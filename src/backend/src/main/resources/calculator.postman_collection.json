@@ -198,7 +198,7 @@
 					"protocol": "http",
 					"host": ["localhost"],
 					"port": "9090",
-					"path": ["sub"],
+					"path": ["subtract"],
 					"query": [
 						{ "key": "num1", "value": "0" },
 						{ "key": "num2", "value": "-1" }
@@ -253,7 +253,7 @@
 					"protocol": "http",
 					"host": ["localhost"],
 					"port": "9090",
-					"path": ["sub"],
+					"path": ["subtract"],
 					"query": [
 						{ "key": "num1", "value": "1432.2" },
 						{ "key": "num2", "value": "123.1" }
