@@ -64,7 +64,7 @@ afterEach(async function () {
 
 });
   it('sub_invalid_input', async function() {
-    await driver.get("http://localhost:8000/")
+    await driver.get("http://localhost:9090/")
     await driver.manage().window().setRect({ width: 784, height: 912 })
     await driver.findElement(By.id("num1")).click()
     await driver.findElement(By.id("num1")).click()
