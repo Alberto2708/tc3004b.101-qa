@@ -55,7 +55,7 @@ jobs:
 
             curl http://localhost:9090
 
-            cd ..
+            cd ../..
 
             npm install
 
