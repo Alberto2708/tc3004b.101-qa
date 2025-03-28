@@ -46,24 +46,17 @@ jobs:
           install-dependencies: true
 
       - run: |
-
-            cd src/frontend
-
-            python3 -m http.server 9090 &
-
-            sleep 20 &&
-
-            curl http://localhost:9090
-
-            cd ../..
-
-            npm install
-
-            cd tests
-
-            npm install
-
-            ../node_modules/.bin/mocha *.js
+          mkdir -p screenshots
+          cd src/frontend
+          python3 -m http.server 9090 &
+          sleep 20 &&
+          curl http://localhost:9090
+          cd ../..
+          npm install
+          cd tests
+          npm install
+          ../node_modules/.bin/mocha *.js
+          echo "Placeholder screenshot" > ../screenshots/placeholder.txt
 
        
 
