@@ -63,14 +63,25 @@ jobs:
         run: |
           newman run src/backend/src/main/resources/SoftwareQuality.postman_collection.json
 
-      # Set up Chrome for Selenium tests
-      - name: Set up Chrome
-        uses: browser-actions/setup-chrome@v1
+  frontend-tests:
+    name: Frontend Tests
+    runs-on: ubuntu-22.04
+
+    container:
+      image: node:20
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - uses: browser-actions/setup-chrome@v1
         with:
           chrome-version: 120
           install-dependencies: true
 
-      # Run Selenium tests
       - name: Run Selenium Tests
         run: |
           mkdir -p screenshots
@@ -85,7 +96,6 @@ jobs:
           ../node_modules/.bin/mocha *.js
           echo "Placeholder screenshot" > ../screenshots/placeholder.txt
 
-      # Upload screenshots as artifacts
       - uses: actions/upload-artifact@v4
         if: always()
         with:
